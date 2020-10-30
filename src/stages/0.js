@@ -6,7 +6,8 @@ function execute(user, msg, contato) {
 
   Object.keys(cardapio.menu).forEach((value) => {
     let element = cardapio.menu[value];
-    menu += `${value} - ${element.descricao}        R$ ${element.preco} \n`;
+    let price = element.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    menu += `${value} - ${element.descricao}        ${price} \n`;
   });
 
   banco.db[user].stage = 1;

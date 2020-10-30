@@ -15,13 +15,14 @@ function execute(user, msg) {
   let total = 0;
   banco.db[user].itens.forEach((value) => {
     console.log(value);
-    resumo += `${value.descricao} ----------------  ${value.preco} \n`;
+    let price = value.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    resumo += `${value.descricao} ----------------  ${price} \n`;
 
     total += value.preco;
   });
-
+  total = total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
   resumo += "-------------------------\n";
-  resumo += ` Total R$ ${total}`;
+  resumo += ` Total ${total}`;
 
   return [resumo, "Para confirmar digite # ou para cancelar digite * "];
 }

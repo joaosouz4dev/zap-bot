@@ -4,11 +4,11 @@ const cardapio = {
     preco: 9.9,
   },
   2: {
-    descricao: "Passaporte",
+    descricao: "X-Bacon",
     preco: 10.0,
   },
   3: {
-    descricao: "Minuano",
+    descricao: "X-Tudo",
     preco: 12.99,
   },
 };
