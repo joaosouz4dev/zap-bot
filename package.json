@@ -11,6 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "venom-bot": "^2.0.18"
+    "@wppconnect-team/wppconnect": "^1.5.0"
   }
 }

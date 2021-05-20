@@ -1,6 +1,6 @@
 // Supports ES6
 // import { create, Whatsapp } from 'sulla';
-const bot = require("venom-bot");
+const bot = require("@wppconnect-team/wppconnect");
 const banco = require("./banco");
 const stages = require("./stages");
 
