@@ -11,6 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@wppconnect-team/wppconnect": "^1.5.0"
+    "@wppconnect-team/wppconnect": "^1.12.4"
   }
 }
