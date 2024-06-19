@@ -1,4 +1,5 @@
-const banco = require("../banco");
+const banco = require('../banco');
+const stages = require('../stages');
 let estagioInterno = 0;
 
 function execute(user, msg) {
@@ -7,13 +8,13 @@ function execute(user, msg) {
   if (estagioInterno === 1) {
     banco.db[user].stage = 4;
 
-    return stages.step[4].obj.execute(user, "");
+    return stages.step[4].obj.execute(user, '');
   }
-  if (msg === "1") {
+  if (msg === '1') {
     estagioInterno++;
-    return ["Digite o valor em dinheiro para levarmos o troco: "];
+    return ['Digite o valor em dinheiro para levarmos o troco: '];
   }
-  return ["Escolha a forma de pagamento:\n1️⃣-Dinheiro\n2️⃣-Cartão"];
+  return ['Escolha a forma de pagamento:\n1️⃣-Dinheiro\n2️⃣-Cartão'];
 }
 
 exports.execute = execute;

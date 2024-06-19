@@ -1,17 +1,20 @@
 // Supports ES6
 // import { create, Whatsapp } from 'sulla';
-const bot = require("@wppconnect-team/wppconnect");
-const banco = require("./banco");
-const stages = require("./stages");
+const bot = require('@wppconnect-team/wppconnect');
+const banco = require('./banco');
+const stages = require('./stages');
 
-bot.create().then((client) => start(client));
-function start(client) {
+bot
+  .create({
+    session: 'zap-bot',
+  })
+  .then((client) => start(client));
+
+async function start(client) {
+  let tokens = await client.getSessionTokenBrowser();
+  console.log(tokens);
   client.onMessage(async (message) => {
-    let resp = stages.step[getStage(message.from)].obj.execute(
-      message.from,
-      message.body,
-      message.sender.name
-    );
+    let resp = stages.step[getStage(message.from)].obj.execute(message.from, message.body, message.sender.name);
     for (let index = 0; index < resp.length; index++) {
       const element = resp[index];
       await client.sendText(message.from, element);

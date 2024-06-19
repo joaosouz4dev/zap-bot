@@ -1,16 +1,19 @@
 {
-  "name": "03-ZapBOT2",
+  "name": "zapbot",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
+    "wwebjs": "node src/index-wwebjs.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@wppconnect-team/wppconnect": "^1.12.7"
+    "@wppconnect-team/wppconnect": "^1.12.7",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.24.0"
   }
 }

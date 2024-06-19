@@ -1,3 +1,5 @@
 node_modules
 tokens
+tokens-wwebjs
+.wwebjs_auth
 *-lock.json
