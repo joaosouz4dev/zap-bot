@@ -1,12 +1,12 @@
-const cardapio = require("../cardapio");
-const banco = require("../banco");
+const cardapio = require('../cardapio');
+const banco = require('../banco');
 
 function execute(user, msg, contato) {
-  let menu = " CARDAPIO \n\n";
+  let menu = ' CARDAPIO \n\n';
 
   Object.keys(cardapio.menu).forEach((value) => {
     let element = cardapio.menu[value];
-    let price = element.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    let price = element.preco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
     menu += `${value} - ${element.descricao}        ${price} \n`;
   });
 
