@@ -11,13 +11,22 @@ bot
   .then((client) => start(client));
 
 async function start(client) {
-  let tokens = await client.getSessionTokenBrowser();
-  console.log(tokens);
   client.onMessage(async (message) => {
-    let resp = stages.step[getStage(message.from)].obj.execute(message.from, message.body, message.sender.name);
+    const stage = await getStage(message.from);
+    let resp = stages.step[stage].obj.execute(message.from, message.body, message.sender?.name);
     for (let index = 0; index < resp.length; index++) {
       const element = resp[index];
-      await client.sendText(message.from, element);
+      if (stage === 0 && index === 0) {
+        try {
+          await client.sendText(message.from, element, {
+            quotedMsg: message.id,
+          });
+        } catch (e) {
+          console.log(e);
+        }
+      } else {
+        await client.sendText(message.from, element);
+      }
     }
   });
 }
